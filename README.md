@@ -85,3 +85,34 @@ All the details about the hooks can be found on the macro [`main`].
     backend code itself.
 
 License: MIT OR Apache-2.0
+
+
+
+## WIP: Assets busting
+
+Delete this section before merging PR.
+
+To do:
+
+- Add content hash to filename of generated assets:
+   * Wasm bundles
+   * SCSS compiled
+   * images and other static files
+- OR use a folder that contain _all_ the assets. So we don't bother to generate
+  a new file for each resource. The con of this: we bust the cache even for assets
+  that haven't changed. But the implementation should be simpler.
+- Find a way to express that we are referencing a ressource that will have its
+  content hashed. (eg., `wasmrun::("images/logo.svg")` will be replaced with
+  the generated latest version of the bundled file.)
+- Do not do this in development mode. Only when building a release? 
+- How to handle direct backend compilation with `cargo build -p server`?
+- First step: have a data structure that contains all the mapping (filename ->
+  new-filename)? That data can be serialized and read at runtime or can be
+  injected with a macro?
+
+
+
+How? 
+
+- Go through all the HTML and CSS files where we might reference an assets and
+  replace the references there.

@@ -1,0 +1,9 @@
+
+#logo-container {
+    min-height: 300px;
+    min-width: 300px;
+    
+    background-image: url("/assets/images/rust-logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

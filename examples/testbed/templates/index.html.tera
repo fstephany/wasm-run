@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/assets/css/style.css"/>
+    </head>
+    <body>
+        <h1>Assets Busting Example</h1>
+        <div id=logo-container></div>
+        <p>
+            The Rust logo is loaded from the CSS file. The Ferris mascot is 
+            referenced from the HTML.
+        <p>
+
+        <img alt="Ferris, the unofficial rust mascot" src="/assets/images/ferris.svg" />
+    </body>
+</html>
