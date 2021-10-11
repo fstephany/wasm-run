@@ -110,6 +110,7 @@ To do:
   new-filename)? That data can be serialized and read at runtime or can be
   injected with a macro?
 
+- Tera filter/function ?
 
 
 How? 

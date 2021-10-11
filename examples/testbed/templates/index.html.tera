@@ -10,6 +10,6 @@
             referenced from the HTML.
         <p>
 
-        <img alt="Ferris, the unofficial rust mascot" src="/assets/images/ferris.svg" />
+        <img alt="Ferris, the unofficial rust mascot" src="{{ 'images/ferris.svg' | assetify }}" />
     </body>
 </html>
