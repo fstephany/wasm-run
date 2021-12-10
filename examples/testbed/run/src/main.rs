@@ -20,16 +20,15 @@ fn main() {
     // - output path
     // - config?
 
-    // - go through all the assets
+    // - go through all the assets (after they were compiled/optimized)
     // - get their hash
     // - copy them over the build directory with content hash
-    // - OPTION: Apply optimizer there (e.g., re-encode jpeg?)
     // - Generate the manifest file
 
     // Actions:
-    // - prepare
-    // - clean
-    // - info
+    // - prepare: generate a file like the sprocket manifest
+    // - clean: delete the assets and the manifest
+    // - dry-run: performs a dry run and display what would get generated?
     // - watch
 
     println!("Listing assets");
@@ -61,12 +60,11 @@ fn list_assets<P: AsRef<Path>>(path: P) -> Vec<Asset> {
             f.read_to_end(&mut buf).unwrap();
 
             let digest = md5::Md5::digest(&buf);
-            let content_hash = String::from(digest.to_ascii_lowercase());
 
             Asset {
                 filename: filename.to_string_lossy().into_owned(),
                 path,
-                content_hash,
+                content_hash: format!("{:x}", digest),
             }
         })
         .collect()
